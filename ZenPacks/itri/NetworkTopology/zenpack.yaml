@@ -1,0 +1,42 @@
+name: ZenPacks.itri.NetworkTopology
+
+device_classes:
+
+  /Network/Switch:
+    zProperties:
+      zPythonClass: ZenPacks.itri.NetworkTopology.NetworkSwitch
+      zSnmpMonitorIgnore: false
+      zCollectorPlugins:
+        - itri.NetworkLinks
+
+classes:
+  
+  NetworkSwitch:
+    base: [zenpacklib.Device]
+    label: Network Switch
+  
+  NetworkLink:
+    base: [zenpacklib.Component]
+    label: Network Link
+    properties:
+      local_ip:
+        label: Local IP
+        order: 1
+      local_port:
+        label: Local Port
+        order: 2
+      local_type:
+        label: Local Type
+        order: 3
+      remote_ip:
+        label: Remote IP
+        order: 4
+      remote_port:
+        label: Remote Port
+        order: 5
+      remote_type:
+        label: Remote Type
+        order: 6
+
+class_relationships:
+  - NetworkSwitch 1:MC NetworkLink
