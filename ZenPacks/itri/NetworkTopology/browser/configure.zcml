@@ -11,13 +11,4 @@
     directory="resources"
     />
 
-  <browser:viewlet
-    name="js-graph"
-    paths="/++resource++networktopology/js/graph.js"
-    weight="20"
-    manager="Products.ZenUI3.browser.interfaces.IJavaScriptSrcManager"
-    class="Products.ZenUI3.browser.javascript.JavaScriptSrcBundleViewlet"
-    permission="zope2.Public"
-    />
-
 </configure>
