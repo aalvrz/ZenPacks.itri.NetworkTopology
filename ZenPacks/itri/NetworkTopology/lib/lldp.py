@@ -1,13 +1,10 @@
 import Globals
 import sys, os
 import logging
-log = logging.getLogger('zen.nmapper')
+log = logging.getLogger('zen.NetworkTopology.lldp')
 
 from pynetsnmp.SnmpSession import *
 from pynetsnmp.netsnmp import *
-
-from Products.ZenUtils.CmdBase import CmdBase
-from Products.ZenUtils.Utils import zenPath
 
 # Error codes
 ERR_DEVICE_TYPE_ERROR = 51101
@@ -20,10 +17,13 @@ MIB_LLDP_REM_PORT_DESC = '.1.0.8802.1.1.2.1.4.1.1.8'
 MIB_LLDP_REM_SYS_DESC = '.1.0.8802.1.1.2.1.4.1.1.10'
 MIB_RFC1213_SYS_DESC = '.1.3.6.1.2.1.1.1'
 
+
 class Link():
     """Class to represent links between a local and remote devices."""
 
-    def __init__(self, local_type='Unknown', local_ip='Unknown', local_port='Unknown', remote_type='Unknown', remote_ip='Unknown', remote_port='Unknown'):
+    def __init__(self, local_type='Unknown', local_ip='Unknown', 
+                 local_port='Unknown', remote_type='Unknown', 
+                 remote_ip='Unknown', remote_port='Unknown'):
         self.local_type = local_type
         self.local_ip = local_ip
         self.local_port = local_port
@@ -110,7 +110,7 @@ class LLDPSession(SnmpSession):
                 break
                 
         return table_result
-    
+
     def _getNext(self, oid):
         self.session = netsnmp.Session(
             version = self._version,

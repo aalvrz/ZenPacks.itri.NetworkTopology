@@ -1,13 +1,11 @@
 """Models the network links for a switch device using LLDP."""
 
-# Twisted imports
 from twisted.internet.defer import inlineCallbacks, returnValue
 
-# Zenoss imports
 from Products.DataCollector.plugins.CollectorPlugin import PythonPlugin
 
-# ZenPack imports
 from ZenPacks.itri.NetworkTopology.lib import lldp
+
 
 class NetworkLinks(PythonPlugin):
     relname = 'networkLinks'
@@ -19,9 +17,13 @@ class NetworkLinks(PythonPlugin):
     
     @inlineCallbacks
     def collect(self, device, log):
-        log.info('Collecting network link data for switch device {0}'.format(device.id))
-        
-        switch_links = yield lldp.get_switch_links(device.id)
+        log.info('Collecting network link data for switch device {0}'.format(
+            device.id))
+
+        try:
+            switch_links = yield lldp.get_switch_links(device.id)
+        except Exception as e:
+            log.error('{0}: {1}'.format(device.id, e))
 
         rm = self.relMap()
         
@@ -39,6 +41,8 @@ class NetworkLinks(PythonPlugin):
         returnValue(rm)
     
     def process(self, device, results, log):
-        log.info('Processing network link data for switch device {0}'.format(device.id))
+        log.info('Processing network link data for switch device {0}'.format(
+            device.id))
         log.debug(results)
+        
         return results
