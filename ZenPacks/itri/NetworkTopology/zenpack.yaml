@@ -5,12 +5,11 @@ device_classes:
   /Network/Switch:
     zProperties:
       zPythonClass: ZenPacks.itri.NetworkTopology.NetworkSwitch
-      zSnmpMonitorIgnore: false
+      zSnmpMonitorIgnore: true
       zCollectorPlugins:
         - itri.NetworkLinks
 
 classes:
-  
   NetworkSwitch:
     base: [zenpacklib.Device]
     label: Network Switch
