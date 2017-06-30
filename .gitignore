@@ -3,4 +3,3 @@
 .svn
 *.egg-info
 build
-dist
