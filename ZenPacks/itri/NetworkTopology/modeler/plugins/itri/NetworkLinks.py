@@ -7,7 +7,7 @@ from twisted.internet.defer import inlineCallbacks, returnValue
 from Products.DataCollector.plugins.CollectorPlugin import PythonPlugin
 
 # ZenPack imports
-from ZenPacks.itri.NetworkTopology import lldp
+from ZenPacks.itri.NetworkTopology.lib import lldp
 
 class NetworkLinks(PythonPlugin):
     relname = 'networkLinks'
