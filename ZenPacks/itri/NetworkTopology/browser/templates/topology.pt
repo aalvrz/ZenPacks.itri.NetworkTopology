@@ -10,8 +10,7 @@
 
    <tal:block metal:fill-slot="script_layout">
       <link rel="stylesheet" type="text/css" href="++resource++networktopology/css/topology_map.css">
-      <script src="//d3js.org/d3.v3.min.js"></script>
-      <!-- <script src="/++resource++networktopology/js/lib/d3.v4.min.js" type="text/javascript"></script> -->
+      <script src="/++resource++networktopology/js/lib/d3.v3.min.js" type="text/javascript"></script>
 
       <script
          tal:attributes="src python: context.zport.getVersionedResourcePath('/++resource++networktopology/js/render_topology_map.js')"
