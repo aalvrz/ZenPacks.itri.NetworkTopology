@@ -3,9 +3,9 @@
 # or saved.  Do not modify them directly here.
 # NB: PACKAGES is deprecated
 NAME = "ZenPacks.itri.NetworkTopology"
-VERSION = "1.0.0dev"
-AUTHOR = "Your Name Here"
-LICENSE = ""
+VERSION = "1.0.0"
+AUTHOR = "Jaime Alvarez (jalvarez@itri.org.tw)"
+LICENSE = "GPL"
 NAMESPACE_PACKAGES = ['ZenPacks', 'ZenPacks.itri']
 PACKAGES = ['ZenPacks', 'ZenPacks.itri', 'ZenPacks.itri.NetworkTopology']
 INSTALL_REQUIRES = []
